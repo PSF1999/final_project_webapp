@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Tailwind css -->
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/78228ce055.js" crossorigin="anonymous"></script>
+  <!-- Chosen -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+  <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Roboto&display=swap" rel="stylesheet">
+  <title>IPL Predictor</title>
+</head>
+
+<body>
+  <section id="cover">
+    <div>
+      <h1 class="cover-txt">IPL Fiverr
+        <iframe class="home-gif rounded-md" src="https://giphy.com/embed/RgdWeNbaYyToPTnDU7" width="480" height="360"
+          frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p><a href="https://giphy.com/gifs/tripo-cricket-six-ipl-RgdWeNbaYyToPTnDU7"></a></p>
+      </h1>
+      <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+        <div class="rounded-full shadow mr-12">
+          <a href="/bmatch"
+            class="mybutton w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-red-700 hover:bg-blue-500 md:py-4 md:text-xl md:px-10">
+            Match starting
+          </a>
+        </div>
+        <div class="rounded-full shadow mr-12">
+          <a href="/ongoing"
+            class="mybutton w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-red-700 hover:bg-blue-500 md:py-4 md:text-xl md:px-10">
+            Match ongoing
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Script -->
+  <!-- <script type="text/javascript">
+    $(document).ready(function () {
+      $('select').chosen({ width: '200px' });
+    });
+    function validateForm() {
+      const selected = document.querySelectorAll('#players2 option:checked');
+      const values = Array.from(selected).map(el => el.value);
+      var x = values.length;
+      if (x != 2) {
+        alert("Enter four players");
+        return false;
+      return True
+  }
+}
+  </script> -->
+</body>
+
+</html>

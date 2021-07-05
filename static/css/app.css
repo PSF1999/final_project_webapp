@@ -1,0 +1,34 @@
+body {
+    background: url('../sharon-mccutcheon-fSlCxR0dnZY-unsplash.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 2% 5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cover-txt {
+    padding: 7% 0 4%;
+    font-family: 'Grenze Gotisch', cursive;
+    color: cornsilk;
+    font-size: 20rem;
+}
+
+.home-gif {
+    float: right;
+    border-color: #999;
+    border-width: 0.3rem;
+}
+
+.mybutton {
+    font-size: 2rem;
+}
+#input-form {
+    padding: 17.5% 7%;
+    font-size: 1.5rem;
+}
+.score-txt {
+    padding: 7% 0 4%;
+    font-family: 'Grenze Gotisch', cursive;
+    color: cornsilk;
+    font-size: 10rem;
+}

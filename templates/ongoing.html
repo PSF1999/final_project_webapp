@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Tailwind css -->
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/78228ce055.js" crossorigin="anonymous"></script>
+  <!-- Chosen -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+  <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Roboto&display=swap" rel="stylesheet">
+  <title>IPL Predictor</title>
+</head>
+<body>
+    <section id="input-form" class="flex justify-center">
+      <div class="w-full max-w-3xl">
+        <form name="ongoing-form" 
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" 
+        onsubmit="return" action="/predict_ongoing" method="POST">
+      <h2 class="mb-4 text-3xl font-bold">Batsman information</h2>
+      <div class="row flex justify-center">
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+           Balls faced
+          </label>
+          <input type="number" name="balls-faced" 
+          class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="balls-faced" placeholder="eg. 24" required>
+        </div>
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+           Strike rate
+          </label>
+          <input type="number" name="strike-rate" step="0.01" class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="strike-rate" placeholder="eg. 109.17" required>
+        </div>
+      </div>
+      <div class="row flex justify-center">
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+            Number of 100's
+          </label>
+          <input type="number" name="centuries" class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="centuries" placeholder="eg. 1" required>
+        </div>
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+            Last ball run
+          </label>
+          <input type="number" name="run" class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="run" placeholder="eg. 1" required>
+        </div>
+      </div>
+      <h2 class="mb-4 text-3xl font-bold">Bowler information</h2>
+      <div class="row flex justify-center">
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+           Wickets taken
+          </label>
+          <input type="number" name="wickets" 
+          class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="wickets" placeholder="eg. 2" required>
+        </div>
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+           Economy
+          </label>
+          <input type="number" name="economy" step="0.01" class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="economy" placeholder="eg. 10.19" required>
+        </div>
+      </div>
+      <h2 class="mb-4 text-3xl font-bold">Match information</h2>
+      <div class="row flex justify-center">
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+           Overs
+          </label>
+          <input type="number" name="curr_over" step="0.1" 
+          class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="curr_over" placeholder="eg. 2.4" required>
+        </div>
+        <div class="mb-4 mx-2 col">
+          <label class="block text-gray-700 font-bold mb-2">
+            Current score
+          </label>
+          <input type="number" name="curr_score" class="shadow appearance-none border rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="curr_score" placeholder="eg. 1" required>
+        </div>
+      </div>
+      <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="over-ball">
+       Enter the number of balls for predicting score 
+      </label>
+      <input type="number" name="over-ball" step="0.1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="over-ball" placeholder="eg. 16.4" required>
+    </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-red-700 hover:bg-blue-500 text-white text-lg font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+          type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
+    </div>
+  </section>
+</body>

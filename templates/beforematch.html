@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Tailwind css -->
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/78228ce055.js" crossorigin="anonymous"></script>
+  <!-- Chosen -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+  <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Roboto&display=swap" rel="stylesheet">
+  <title>IPL Predictor</title>
+</head>
+<body>
+    <section id="input-form" class="flex justify-center">
+      <div class="w-full max-w-3xl">
+        <form name="ongoing-form" 
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" 
+        onsubmit="return" action="/predict" method="POST">
+        <div class=row></div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">
+              Batting Team
+            </label>
+            <input type="text" name="bat-team" list="teams"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="bat-team" placeholder="Mumbai Indians" required>             
+            <datalist id="teams">
+                {% for team in teams %}
+                    <option>{{team}}</option>
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">
+              Bowling Team
+            </label>
+            <input type="text" name="bowl-team" list="teams"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="bowl-team" placeholder="Mumbai Indians" required>             
+            <datalist id="teams">
+                {% for team in teams %}
+                    <option>{{team}}</option>
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">
+              City
+            </label>
+            <input type="text" name="city" list="cities"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="city" placeholder="Delhi" required>             
+            <datalist id="cities">
+                {% for city in cities %}
+                    <option>{{city}}</option>
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">
+              Venue
+            </label>
+            <input type="text" name="venue" list="venues"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="venue" placeholder="Wankhede Stadium" required>             
+            <datalist id="venues">
+                {% for venue in venues %}
+                    <option>{{venue}}</option>
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="venue">
+              Top 4 Batsmen
+            </label>
+            <select class="chosen-select" name="batsmen" id="batsmen" size="4" multiple required>
+                {% for player in players %}
+                    <option>{{ player }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="venue">
+              Top 4 Bowlers
+            </label>
+            <select class="chosen-select" name="bowler" id="bowler" size="4" multiple required>
+                {% for player in players %}
+                    <option>{{ player }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">
+              Toss winner
+            </label>
+            <input type="text" name="toss-winner" list="teams"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="toss-winner" placeholder="Mumbai Indians" required>             
+            <datalist id="teams">
+                {% for team in teams %}
+                    <option>{{team}}</option>
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">
+              Toss decision
+            </label>
+            <input type="text" name="toss-decision" list="toss-decisions"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="toss-decision" placeholder="bat" required>             
+            <datalist id="toss-decisions">
+                <option>field</option>
+                <option>bat</option>
+            </datalist>
+        </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-red-700 hover:bg-blue-500 text-white text-lg font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+          type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
+    </div>
+  </section>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('select').chosen({ width: '200px' });
+        });
+    </script>
+</body>

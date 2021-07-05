@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Tailwind css -->
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/78228ce055.js" crossorigin="anonymous"></script>
+  <!-- Chosen -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+  <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Roboto&display=swap" rel="stylesheet">
+  <title>IPL Predictor</title>
+</head>
+
+<body>
+  <section id="cover">
+    <div>
+      <h1 class="score-txt">Predicted score: {{score}}
+        <iframe class="home-gif rounded-md" src="https://giphy.com/embed/RgdWeNbaYyToPTnDU7" width="480" height="360"
+          frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p><a href="https://giphy.com/gifs/tripo-cricket-six-ipl-RgdWeNbaYyToPTnDU7"></a></p>
+      </h1>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
