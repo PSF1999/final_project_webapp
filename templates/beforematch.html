@@ -21,9 +21,9 @@
 <body>
     <section id="input-form" class="flex justify-center">
       <div class="w-full max-w-3xl">
-        <form name="ongoing-form" 
-        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" 
-        onsubmit="return" action="/predict" method="POST">
+        <form name="ongoing-form"
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onsubmit="return" action="/predict_start" method="POST">
         <div class=row></div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2">
@@ -31,7 +31,7 @@
             </label>
             <input type="text" name="bat-team" list="teams"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="bat-team" placeholder="Mumbai Indians" required>             
+              id="bat-team" placeholder="Mumbai Indians" required>
             <datalist id="teams">
                 {% for team in teams %}
                     <option>{{team}}</option>
@@ -44,7 +44,7 @@
             </label>
             <input type="text" name="bowl-team" list="teams"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="bowl-team" placeholder="Mumbai Indians" required>             
+              id="bowl-team" placeholder="Mumbai Indians" required>
             <datalist id="teams">
                 {% for team in teams %}
                     <option>{{team}}</option>
@@ -57,7 +57,7 @@
             </label>
             <input type="text" name="city" list="cities"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="city" placeholder="Delhi" required>             
+              id="city" placeholder="Delhi" required>
             <datalist id="cities">
                 {% for city in cities %}
                     <option>{{city}}</option>
@@ -70,7 +70,7 @@
             </label>
             <input type="text" name="venue" list="venues"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="venue" placeholder="Wankhede Stadium" required>             
+              id="venue" placeholder="Wankhede Stadium" required>
             <datalist id="venues">
                 {% for venue in venues %}
                     <option>{{venue}}</option>
@@ -103,7 +103,7 @@
             </label>
             <input type="text" name="toss-winner" list="teams"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="toss-winner" placeholder="Mumbai Indians" required>             
+              id="toss-winner" placeholder="Mumbai Indians" required>
             <datalist id="teams">
                 {% for team in teams %}
                     <option>{{team}}</option>
@@ -116,7 +116,7 @@
             </label>
             <input type="text" name="toss-decision" list="toss-decisions"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="toss-decision" placeholder="bat" required>             
+              id="toss-decision" placeholder="bat" required>
             <datalist id="toss-decisions">
                 <option>field</option>
                 <option>bat</option>
