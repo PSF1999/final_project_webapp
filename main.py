@@ -50,9 +50,7 @@ def processData(bat_team, bowl_team, city, venue, batsmen, bowlers, toss_winner,
     strikeRate /= len(batsmen)
     # strikeRate = 120.0
     economy = 0
-    print(bowlers)
     for b in bowlers:
-        print("Hello", getBowlerStats(b))
         economy += float(getBowlerStats(b))
     economy /= len(bowlers)
     batTeam = teamMap.get(bat_team)
@@ -69,13 +67,11 @@ def hello():
 
 @app.route('/ongoing', methods = ["GET"])
 def predictOngoing():
-    return render_template('ongoing.html'
-    )
+    return render_template('ongoing.html')
 
 @app.route('/bmatch', methods = ["GET"])
 def beforeMatch():
-    return render_template('beforematch.html', teams=getTeams(), cities=getCity(), venues=getVenue(), players=getPlayers()
-    )
+    return render_template('beforematch.html', teams=getTeams(), cities=getCity(), venues=getVenue(), players=getPlayers())
 
 @app.route('/predict_start', methods = ["POST"])
 def predict_start():
@@ -103,7 +99,7 @@ def predict_ongoing():
     ball_number = request.form.get("curr_over")
     score = request.form.get("curr_score")
     pred_ball = request.form.get("over-ball")
-    
+
     data = [
         int(total_runs),
         int(balls_faced),
@@ -118,7 +114,6 @@ def predict_ongoing():
     loaded_model = pickle.load(open('models/model2.sav', 'rb'))
     new_score = str(int(loaded_model.predict([data])[0]))
     return render_template('predict.html', score=new_score)
-    
+
 if __name__ == '__main__':
     app.run()
-

@@ -2,12 +2,10 @@ from dotenv import load_dotenv
 import os
 import requests
 load_dotenv()
-
+key="cEs7bJVxHcUysZelHsq9a3tYNdp1"
 
 def getBatsmenStats(name):
-    key = os.getenv("KEY")
-    r1 = requests.get("https://cricapi.com/api/playerFinder?apikey="+key+"&name="
-+name)
+    r1 = requests.get("https://cricapi.com/api/playerFinder?apikey="+key+"&name="+name)
     data1 = r1.json()
     if len(data1['data']) == 0:
         return -1
@@ -18,9 +16,8 @@ def getBatsmenStats(name):
     return sr
 
 def getBowlerStats(name):
-    key = os.getenv("KEY")
     r1 = requests.get("https://cricapi.com/api/playerFinder?apikey="+key+"&name="
-+name)
++name+"")
     data1 = r1.json()
     if len(data1['data']) == 0:
         return -1
@@ -29,4 +26,3 @@ def getBowlerStats(name):
     data2 = r2.json()['data']['bowling']
     econ = data2['T20Is']['Econ']
     return econ
-
